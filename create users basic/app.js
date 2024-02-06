@@ -6,7 +6,7 @@ const server = http.createServer((req,res)=> {
     // const users =[];  don't declare here because as soon as u enter the user name and hit submit this users will be empty because this variable is again created from scratch as containing function(request listener) runs again
     if( url === '/') {
         res.write(
-        `<html>
+        `<html> 
             <head><title>assignment-1</title></head>
             <body>
                 <h1>welcome anvesh!</h1>
