@@ -1,0 +1,33 @@
+storing the session in memory on the server side is not good, because memory may overflow, so we need to use a database to store the session
+
+session will persists across the requests but not accross users. only one user will have access to the session which is you.
+
+when you close the browser session will be deleted 
+
+if you have a logged in and a session is created in microsoft edge browser, then if you open the chrome browser that session will not be available here, you need to again login and then a new session will be created.
+
+use session to store the data of the user and you dont wont to loose the data after every response you send and that should not be visible to other user.
+
+we use session for user authentication as discussed above and also for storing the user cart, and can also be used to store any sensitive info which needs to be shared across the requests.
+
+for every request made, middlewares will run (ex: app.use() )
+
+
+error resolution 
+
+Error: Error setting xlM7WVKizbmyibZm6bo8DkxiMPZntXZj to Session {
+  cookie: { path: '/', _expires: null, originalMaxAge: null, httpOnly: true },
+  isLoggedIn: true,
+  user: {
+    cart: { items: [] },
+    _id: 670bcc2b3730292380bfcc20,
+    username: 'anvesh',
+    email: 'umasai.anvesh@gmail.com',
+    __v: 8
+  }
+}: Unsupported BSON version, bson types must be from bson 6.x.x
+    at C:\Users\61086214\Desktop\nodejs\login-app-session\node_modules\connect-mongodb-session\index.js:224:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+
+downgraded connect-mongodb-session to 3.1.1 from  ~5.0.0
